@@ -10,7 +10,6 @@ development:
   host: localhost
   database: ajax_app_development
 
-  
 test:
   <<: *default
   adapter: mysql2
