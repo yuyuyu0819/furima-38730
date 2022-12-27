@@ -5,17 +5,14 @@
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 | email              | string              | null: false, unique: true |
-| password           | string              | null: false               |
 | encrypted_password | string              | null: false               |
 | nickname           | string              | null: false               |
 | first_name         | string              | null: false               |
 | last_name          | string              | null: false               |
 | first_name_kana    | string              | null: false               |
 | last_name_kana     | string              | null: false               |
-| birth_year         | integer             | null: false               |
-| birth_month        | integer             | null: false               |
-| birth_day          | integer             | null: false               |
-| phone_number       | integer             | null: false               |
+| birth_day          | date                | null: false               |
+
 
 
 ### Association
@@ -23,8 +20,7 @@
 * has_many :items
 * has_many :favorites
 * has_many :comments
-* has_one  :address
-* has_one  :purchase
+* has_many :purchase
 * has_one  :card
 
 
@@ -32,20 +28,27 @@
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| title                                | string     | null: false                    |
+| title                               | string     | null: false                    |
 | description                         | text       | null: false                    |
-| status                                | string     | null: false                    |
-| delivery_paid_by                    | string     | null: false                    |
-| delivery_date                       | string     | null: false                    |
-| category                            | string     | null: false                    |
+| status                              | integer     | null: false                    |
+| delivery_charge                     | integer     | null: false                    |
+| prefecture                          | integer    | null: false                    |
+| delivery_date                       | integer     | null: false                    |
+| category                            | integer     | null: false                    |
 | price                               | integer    | null: false                    |
 
 ### Association
+
 
 - belongs_to :user
 - has_many :comments
 - has_many :favorites
 - has_one  :purchase
+- belongs_to_active_hash :category
+- belongs_to_active_hash :status
+- belongs_to_active_hash :delivery_charge
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :delivery_date
 
 ## comments table
 
@@ -69,7 +72,7 @@
 | user            | references | null: false, foreign_key: true |
 
 ### Association
-
+- has_one    :address
 - belongs_to :item
 - belongs_to :user
 
@@ -88,14 +91,15 @@
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 | zip code           | string              | null: false                    |
-| prefecture         | string              | null: false                    |
+| prefecture         | integer             | null: false                    |
 | city               | string              | null: false                    |
 | block number       | string              | null: false                    |
-| apartment_name     | string              | null: false                    |
-| user               | references          | null: false, foreign_key: true |
-
+| apartment_name     | string              |                                |
+| purchase           | references          | null: false, foreign_key: true |
+| phone_number       | integer             | null: false                   |
 ### Association
-belongs_to :user
+belongs_to :purchase
+belongs_to_active_hash :prefecture
 
 ## favorites table
 
