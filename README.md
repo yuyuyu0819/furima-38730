@@ -30,12 +30,12 @@
 |-------------------------------------|------------|--------------------------------|
 | title                               | string     | null: false                    |
 | description                         | text       | null: false                    |
-| status_id                           | integer    | null: false                    |
-| delivery_charge_id                  | integer    | null: false                    |
-| prefecture_id                       | integer    | null: false                    |
-| delivery_date_id                    | integer    | null: false                    |
-| category_id                         | integer    | null: false                    |
-| price                               | integer    | null: false                    |
+| status_id                           | references | null: false, foreign_key: true |
+| delivery_charge_id                  | references | null: false, foreign_key: true |
+| prefecture_id                       | references | null: false, foreign_key: true |
+| delivery_date_id                    | references | null: false, foreign_key: true |
+| category_id                         | references | null: false, foreign_key: true  |
+| price                               | references | null: false                    |
 
 ### Association
 
@@ -90,7 +90,7 @@
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 | zip_code           | string              | null: false                    |
-| prefecture_id      | integer             | null: false                    |
+| prefecture_id      | integer             | null: false, foreign_key: true |
 | city               | string              | null: false                    |
 | block number       | string              | null: false                    |
 | apartment_name     | string              |                                |
