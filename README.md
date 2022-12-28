@@ -20,7 +20,7 @@
 * has_many :items
 * has_many :favorites
 * has_many :comments
-* has_many :purchase
+* has_many :purchases
 * has_one  :card
 
 
@@ -30,11 +30,11 @@
 |-------------------------------------|------------|--------------------------------|
 | title                               | string     | null: false                    |
 | description                         | text       | null: false                    |
-| status                              | integer     | null: false                    |
-| delivery_charge                     | integer     | null: false                    |
-| prefecture                          | integer    | null: false                    |
-| delivery_date                       | integer     | null: false                    |
-| category                            | integer     | null: false                    |
+| status_id                           | integer    | null: false                    |
+| delivery_charge_id                  | integer    | null: false                    |
+| prefecture_id                       | integer    | null: false                    |
+| delivery_date_id                    | integer    | null: false                    |
+| category_id                         | integer    | null: false                    |
 | price                               | integer    | null: false                    |
 
 ### Association
@@ -67,7 +67,6 @@
 
 | Column          | Type       | Options                        |
 |-----------------|------------|--------------------------------|
-| delivery_fee    | integer    | null: false                    |
 | item            | references | null: false, foreign_key: true |
 | user            | references | null: false, foreign_key: true |
 
@@ -90,13 +89,13 @@
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| zip code           | string              | null: false                    |
-| prefecture         | integer             | null: false                    |
+| zip_code           | string              | null: false                    |
+| prefecture_id      | integer             | null: false                    |
 | city               | string              | null: false                    |
 | block number       | string              | null: false                    |
 | apartment_name     | string              |                                |
 | purchase           | references          | null: false, foreign_key: true |
-| phone_number       | integer             | null: false                   |
+| phone_number       | string              | null: false                   |
 ### Association
 belongs_to :purchase
 belongs_to_active_hash :prefecture
