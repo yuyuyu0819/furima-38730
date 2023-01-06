@@ -4,8 +4,8 @@ class Item < ApplicationRecord
   # テーブル とのアソシエーション
   belongs_to :user
 
-  has_one :purchase
-  has_one_attached :image
+  # has_one :purchase
+ 
 
   # アクティブハッシュとのアソシエーション
   belongs_to :category
@@ -21,11 +21,11 @@ class Item < ApplicationRecord
     validates :image
     validates :title
     validates :description
-    validates :category_id, length: { minimum: 1 }
-    validates :status_id, length: { minimum: 1 }
-    validates :delivery_charge_id, length: { minimum: 1 }
-    validates :prefecture_id, length: { minimum: 1 }
-    validates :delivery_date_id, length: { minimum: 1 }
+    validates :category_id
+    validates :status_id
+    validates :delivery_charge_id
+    validates :prefecture_id
+    validates :delivery_date_id
     # 300円以上かつ9,999,999円以下で、半角英数字でないと入力不可
     validates :price, inclusion: { in: 300..9_999_999 }, numericality: { only_integer: true }
   end
