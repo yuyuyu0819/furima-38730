@@ -31,8 +31,8 @@
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% else  %>
-    <%= link_to "購入画面に進む", items_path(@item.id)  ,class:"item-red-btn"%>
-   
+      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+   <%# items_path(@item.id) %>   
     <% end %>
  <% end %>
     
