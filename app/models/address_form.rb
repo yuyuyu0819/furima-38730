@@ -24,6 +24,6 @@ class AddressForm
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     # 住所を保存する
     # purchase_idには、変数purchaseのidと指定する
-    Address.create(purchase_id: purchase_id, zip_code: zip_code, prefecture_id: prefecture_id, city: city, block_number: block_number, apartment_name: apartment_name, phone_number: phone_number)
+    Address.create(purchase: purchase, zip_code: zip_code, prefecture_id: prefecture_id, city: city, block_number: block_number, apartment_name: apartment_name, phone_number: phone_number)
   end
 end
