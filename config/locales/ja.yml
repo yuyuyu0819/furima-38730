@@ -1,0 +1,33 @@
+# ja:
+#   activerecord:
+#     attributes:
+#       user:
+#         nickname: ニックネーム
+#         last_name: 名前
+#         last_name_kana: 名前かな
+#         first_name: 苗字
+#         first_name_kana: 苗字かな
+#         birth_day: 誕生日
+#       item:
+#         description: 商品名
+#         title: 商品名
+#         image: 画像
+#         price: 値段
+#         category: カテゴリー
+#         status: 商品の状態
+#         category: カテゴリー
+#         status: 商品の状態
+#         delivery_charge: 配送料の負担
+#         selivery_date: 配送の日数
+#         prefecture: 配送元の地域
+#     errors:
+#       address_form:
+#         zip_code: 郵便番号
+#         prefecture: 都道府県
+#         city: 都道府県
+#         block_number: 市区町村
+#         phone_number: 電話番号
+#         Include_hyphen(-): ハイフン(-)を入れてください
+#         can't_be_blank: が空白です
+#         invalid: 無効な値です
+#         is: は
