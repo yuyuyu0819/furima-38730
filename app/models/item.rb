@@ -29,7 +29,7 @@ class Item < ApplicationRecord
   end
 
   # ジャンル選択が「ーー」の時は保存不可
-  with_options numericality: { other_than: 0, message: "can't be blank" } do
+  with_options numericality: { other_than: 0, message: "を選択してください" } do
     validates :category_id
     validates :status_id
     validates :delivery_charge_id
