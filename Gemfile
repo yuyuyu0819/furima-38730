@@ -70,3 +70,4 @@ gem 'pry-rails'
 gem "payjp"
 gem 'rails-i18n'
 gem 'mail', '2.7.1'
+gem "aws-sdk-s3", require: false
